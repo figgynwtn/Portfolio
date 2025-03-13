@@ -1,0 +1,132 @@
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 2s ease-out;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    animation: slideInFromLeft 1.5s ease-out;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    animation: fadeIn 2.5s ease-out 1s;
+  }
+  
+  /* Experience Section */
+  .experience-item h3 {
+    font-size: 2rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .experience-item:hover h3 {
+    color: #1cc88a; /* Change color on hover */
+  }
+  
+  /* Fade-in and Slide-in Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Smooth Hover Effects for Links */
+  a {
+    color: #1cc88a;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  a:hover {
+    color: #fff;
+    transform: translateY(-5px);
+  }
+  
+  /* Button Style */
+  button {
+    background-color: #1cc88a;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #17a673;
+    transform: scale(1.05);
+  }
+  
+  /* Box Shadows for Cards */
+  .experience-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .experience-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+  }
+  
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .experience-item {
+      margin-bottom: 20px;
+    }
+  
+    .experience-item h3 {
+      font-size: 1.5rem;
+    }
+  }  
