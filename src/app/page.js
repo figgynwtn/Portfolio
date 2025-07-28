@@ -1,14 +1,23 @@
-'use client';
-import Background from '@/components/webgl/Background';
-import Hero from '@/components/sections/Hero';
+'use client'
+import Hero from '@/components/sections/Hero/Hero'
+import { useRef } from 'react'
 
 export default function Home() {
+  const workRef = useRef()
+
   return (
-    <main className="relative h-screen overflow-hidden">
-      <Background />
-      <div className="relative z-10">
+    <div className="relative">
+      {/* Hero Section (WebGL background) */}
+      <section className="h-screen w-full relative">
         <Hero />
-      </div>
-    </main>
-  );
+      </section>
+
+      {/* Work Section (Black background) */}
+      <section 
+        ref={workRef}
+        className="min-h-screen w-full bg-black text-white p-8"
+      >
+      </section>
+    </div>
+  )
 }
