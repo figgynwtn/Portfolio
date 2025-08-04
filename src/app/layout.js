@@ -1,15 +1,8 @@
-import localFont from 'next/font/local';
-
-// Load font directly without CSS modules
-const clashGrotesk = localFont({
-  src: './../../public/fonts/ClashGrotesk-Regular.woff2',
-  display: 'swap',
-  variable: '--font-clash'
-});
+import './globals.css'
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={clashGrotesk.className}>
+    <html lang="en">
       <body>{children}</body>
     </html>
   );
