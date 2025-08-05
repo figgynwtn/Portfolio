@@ -149,9 +149,15 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <h1 
-            className={`text-[clamp(3rem,12vw,8rem)] font-black tracking-tight transition-all duration-500 rgb-shift ${
+            className={`font-clash text-[clamp(3rem,12vw,8rem)] font-black tracking-tight transition-all duration-500 rgb-shift ${
               isHovered ? 'text-neon-purple scale-105' : 'text-neon-primary'
             }`}
+            style={{ 
+              fontFamily: 'Clash Grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+              textShadow: isHovered 
+                ? '0 0 20px #4f46e5, 0 0 40px #4f46e5, 0 0 60px #4f46e5' 
+                : '0 0 10px #4f46e5'
+            }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
