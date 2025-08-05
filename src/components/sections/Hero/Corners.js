@@ -34,12 +34,11 @@ export default function Corners() {
   }, [])
 
   const formatTime = (date) => {
-    if (!date) return '--:--:--'
+    if (!date) return '--:-- --'
     return date.toLocaleTimeString('en-US', {
-      hour12: false,
-      hour: '2-digit',
+      hour: 'numeric',
       minute: '2-digit',
-      second: '2-digit'
+      hour12: true
     })
   }
 
@@ -65,7 +64,7 @@ export default function Corners() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="text-neon-primary neon-text text-xs sm:text-sm">{scrollPercentage}%</span>
+        <span className="text-neon-primary neon-text text-xs sm:text-sm">(scroll {scrollPercentage}%)</span>
       </motion.div>
 
       {/* Bottom Left: Real-time clock with smooth second transitions */}
@@ -76,7 +75,7 @@ export default function Corners() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-neon-primary neon-text text-xs sm:text-sm">{formatTime(currentTime)}</span>
+          <span className="text-neon-primary neon-text text-xs sm:text-sm">Detroit ({formatTime(currentTime)})</span>
         </motion.div>
       )}
 
@@ -89,7 +88,7 @@ export default function Corners() {
       >
         <motion.a
           href="#tunes"
-          className="text-neon-primary neon-text text-xs sm:text-sm hover:text-neon-purple transition-colors"
+          className="text-neon-primary neon-text text-xs sm:text-sm hover:text-neon-purple transition-colors no-underline"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
