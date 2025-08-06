@@ -95,6 +95,23 @@ export default function Corners() {
           TUNES
         </motion.a>
       </motion.div>
+
+      {/* Top Center: Sticky [menu] button */}
+      <motion.div
+        style={{
+          position: 'fixed',
+          top: 16,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 50,
+          width: 'max-content'
+        }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        <span className="text-neon-primary neon-text text-xs sm:text-sm">[menu]</span>
+      </motion.div>
     </>
   )
 }

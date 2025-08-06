@@ -109,8 +109,9 @@ export default function StarScene() {
       animationRef.current = requestAnimationFrame(animate)
       
       if (starRef.current && cameraRef.current) {
-        starRef.current.rotation.y += 0.0063
-        
+        // Slow down the rotation speed
+        starRef.current.rotation.y += 0.0035 // was 0.0063
+
         const t = scrollProgress
         const aspect = cameraRef.current.aspect
         const fov = cameraRef.current.fov

@@ -57,8 +57,10 @@ function ResponsiveStar({ isScrolled, isDragging, setIsDragging }) {
   }
 
   const getResponsiveScale = () => {
-    if (!isScrolled) return 1
-    return 0.15 // Small but clearly visible
+    // Adjust scale based on viewport width for better responsiveness
+    const scaleFactor = Math.min(window.innerWidth / 1200, 1)
+    if (!isScrolled) return scaleFactor * 0.8 // Slightly smaller when not scrolled
+    return scaleFactor * 0.15 // Small but clearly visible when scrolled
   }
 
   const { position, scale } = useSpring({
@@ -137,9 +139,9 @@ export default function Hero() {
           </Canvas>
         </div>
 
-        {/* Hero Text */}
+        {/* Newt Image */}
         <motion.div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-10"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
           style={{ marginTop: '12vmin' }}
           animate={{
             opacity: isScrolled ? 0.3 : 1,
@@ -148,27 +150,37 @@ export default function Hero() {
           }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h1 
-            className={`font-clash text-[clamp(3rem,12vw,8rem)] font-black tracking-tight transition-all duration-500 rgb-shift ${
-              isHovered ? 'text-neon-purple scale-105' : 'text-neon-primary'
-            }`}
-            style={{ 
-              fontFamily: 'Clash Grotesk, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              textShadow: isHovered 
-                ? '0 0 20px #4f46e5, 0 0 40px #4f46e5, 0 0 60px #4f46e5' 
-                : '0 0 10px #4f46e5'
+          <motion.div 
+            className="w-64 h-64" // Adjust size as needed
+            animate={{
+              scale: isHovered ? 1.1 : 1,
+              rotate: isHovered ? 5 : 0
             }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
-            NEWTON
-          </h1>
+            <img 
+              src="/images/newt.png" 
+              alt="Newton" 
+              className="w-full h-full object-contain"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            />
+          </motion.div>
         </motion.div>
 
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-neon-primary">
-          <div className="absolute inset-0 opacity-5 bg-noise" />
-          <div className="absolute inset-0 opacity-10 bg-starfield" />
+        <div className="absolute inset-0">
+          {/* Charcoal base layer */}
+          <div className="absolute inset-0 bg-[#1a1a1e]" />
+          
+          {/* Grain effect */}
+          <div className="absolute inset-0 bg-grain" />
+          
+          {/* Noise effect */}
+          <div className="absolute inset-0 bg-noise" />
+          
+          {/* Starfield */}
+          <div className="absolute inset-0 opacity-20 bg-starfield" />
         </div>
       </section>
     </>
