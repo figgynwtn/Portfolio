@@ -139,49 +139,21 @@ export default function Hero() {
           </Canvas>
         </div>
 
-        {/* Newt Image */}
-        <motion.div 
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-          style={{ marginTop: '12vmin' }}
-          animate={{
-            opacity: isScrolled ? 0.3 : 1,
-            scale: isScrolled ? 0.8 : 1,
-            y: isScrolled ? -50 : 0
-          }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <motion.div 
-            className="w-64 h-64" // Adjust size as needed
-            animate={{
-              scale: isHovered ? 1.1 : 1,
-              rotate: isHovered ? 5 : 0
-            }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            <img 
-              src="/images/newt.png" 
-              alt="Newton" 
-              className="w-full h-full object-contain"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            />
-          </motion.div>
-        </motion.div>
-
         {/* Background Elements */}
-        <div className="absolute inset-0">
-          {/* Charcoal base layer */}
-          <div className="absolute inset-0 bg-[#1a1a1e]" />
-          
-          {/* Grain effect */}
-          <div className="absolute inset-0 bg-grain" />
-          
-          {/* Noise effect */}
-          <div className="absolute inset-0 bg-noise" />
-          
-          {/* Starfield */}
-          <div className="absolute inset-0 opacity-20 bg-starfield" />
-        </div>
+{/* Background Elements */}
+      <div className="absolute inset-0">
+        {/* Charcoal base layer */}
+        <div className="absolute inset-0 bg-[#1a1a1e]" />
+        
+        {/* Grain effect - make sure this has content and proper sizing */}
+        <div className="absolute inset-0 bg-grain" />
+        
+        {/* Noise effect */}
+        <div className="absolute inset-0 bg-noise" />
+        
+        {/* Starfield */}
+        <div className="absolute inset-0 opacity-20 bg-starfield" />
+      </div>
       </section>
     </>
   )
