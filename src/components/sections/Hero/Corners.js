@@ -64,7 +64,8 @@ export default function Corners() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="text-neon-primary neon-text text-xs sm:text-sm">(scroll {scrollPercentage}%)</span>
+        <span className="text-neon-primary neon-text text-xs sm:text-sm">[scroll {scrollPercentage}%] 
+        </span>
       </motion.div>
 
       {/* Bottom Left: Real-time clock with smooth second transitions */}
@@ -75,7 +76,7 @@ export default function Corners() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <span className="text-neon-primary neon-text text-xs sm:text-sm">Detroit ({formatTime(currentTime)})</span>
+          <span className="text-neon-primary neon-text text-xs sm:text-sm">Detroit [{formatTime(currentTime)}]</span>
         </motion.div>
       )}
 
@@ -110,7 +111,7 @@ export default function Corners() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="text-neon-primary neon-text text-xs sm:text-sm">[menu]</span>
+        <span className="text-neon-primary neon-text text-xs sm:text-sm">[ menu ]</span>
       </motion.div>
     </>
   )
