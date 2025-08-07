@@ -1,31 +1,32 @@
 'use client'
-import { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { useTexture } from '@react-three/drei'
-import * as THREE from 'three'
+import Image from 'next/image'
 
 export default function Logo() {
-  const mesh = useRef()
-  const texture = useTexture('/images/newt.png')
-  
-  useFrame(({ clock }) => {
-    if (mesh.current) {
-      mesh.current.rotation.z = Math.sin(clock.getElapsedTime() * 0.5) * 0.05
-    }
-  })
-
   return (
-    <mesh
-      ref={mesh}
-      position={[0, 0, 1]}
-      scale={[3, 3, 1]}
-    >
-      <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial 
-        map={texture} 
-        transparent={true}
-        opacity={0.9}
-      />
-    </mesh>
+    <div style={{
+      position: 'absolute',
+      bottom: '300px', // 2rem from bottom
+      left: '0',
+      right: '0',
+      display: 'flex',
+      justifyContent: 'center',
+      zIndex: 500,
+      pointerEvents: 'none' // Prevents interaction issues
+    }}>
+      <div style={{
+        position: 'relative',
+        width: 'min(90vw, 500px)',
+        height: '80px',
+      }}>
+        <Image
+          src="/images/newt.png"
+          alt="Logo"
+          fill
+          style={{ objectFit: 'contain' }}
+          priority
+          unoptimized
+        />
+      </div>
+    </div>
   )
 }
