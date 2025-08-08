@@ -54,55 +54,50 @@ const projects = [
 ]
 
 export default function Projects() {
-	const [hoveredProject, setHoveredProject] = useState(null)
+  const [hoveredProject] = useState(null)
 
-	return (
-		<section className="w-full bg-neon-primary text-neon-primary">
-			{/* Section Header */}
-			<div className="container mx-auto px-8 py-16">
-				<motion.h2
-					className="neon-heading mb-8 text-neon-primary text-lg md:text-2xl"
-					style={{ fontSize: '2rem', lineHeight: '1.1' }}
-				>
-					PROJECTS
-				</motion.h2>
-			</div>
+  return (
+    <section className="w-full bg-neon-primary text-neon-primary">
+      {/* Section Header */}
+      <div className="container mx-auto px-8 py-16">
+        <motion.h2
+          className="text-4xl mb-8 text-neon-primary"
+          style={{ lineHeight: '1.1' }}
+        >
+          PROJECTS
+        </motion.h2>
+      </div>
 
-			{/* Projects Grid */}
-			<div className="container mx-auto space-y-32 pb-64">
-				{/* Increased bottom padding */}
-				{projects.map((project, index) => (
-					<motion.div
-						key={project.id}
-						className="relative group cursor-pointer"
-						initial={{ opacity: 0, y: 100 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.8, delay: index * 0.1 }}
-					>
-						{/* Project Container */}
-						<div className="relative w-full h-[70vh] overflow-hidden neon-border">
-							{/* Background Image */}
-							<motion.div
-								className="absolute inset-0"
-								style={{ backgroundImage: `url(${project.image})` }}
-								whileHover={{ scale: 1.05 }}
-							/>
-
-							{/* Project Info - Moved outside the image container */}
-							<div className="absolute bottom-8 left-8 z-10">
-								<h3 className="font-clash text-xl text-neon-primary">
-									{project.title}
-								</h3>
-								<div className="flex gap-4 text-sm text-neon-secondary">
-									<span>{project.year}</span>
-									<span className="text-neon-purple">•</span>
-									<span>{project.category}</span>
-								</div>
-							</div>
-						</div>
-					</motion.div>
-				))}
-			</div>
-		</section>
-	)
+      {/* Projects Grid */}
+      <div className="container mx-auto space-y-32 pb-64">
+        {projects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            className="relative group cursor-pointer"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+          >
+            <div className="relative w-full h-[70vh] overflow-hidden border border-gray-600">
+              <motion.div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${project.image})` }}
+                whileHover={{ scale: 1.05 }}
+              />
+              <div className="absolute bottom-8 left-8 z-10">
+                <h3 className="font-clash text-xl text-neon-primary">
+                  {project.title}
+                </h3>
+                <div className="flex gap-4 text-sm text-neon-secondary">
+                  <span>{project.year}</span>
+                  <span>•</span>
+                  <span>{project.category}</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  )
 }
